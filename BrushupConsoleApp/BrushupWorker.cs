@@ -29,6 +29,44 @@ namespace BrushupConsoleApp
 
             Console.WriteLine(mcard);
 
+            /*
+             * Brushup #2
+             */
+
+            try
+            {
+                d1.Name = "s";
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+
+            Console.WriteLine(d1);
+
+            try
+            {
+                d1.Price = -35;
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+
+            Console.WriteLine(d1);
+
+            Drink d3 = new Drink();
+            try
+            {
+                d3 = new Drink("somedrink", "redvine", true, -1);
+                
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+
+            Console.WriteLine(d3);
         }
     }
 }

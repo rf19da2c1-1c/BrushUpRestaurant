@@ -6,22 +6,14 @@ using System.Threading.Tasks;
 
 namespace RestaurantModelLib.model
 {
-    public class Drink
+    public class Drink : MenuItem
     {
         // instance fields
-        private String _name;
         private String _typeOfDrink;
         private bool _isAlcoholic;
-        private double _price;
-        
 
-        // Propertie
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
 
+        // Properties
         public string TypeOfDrink
         {
             get => _typeOfDrink;
@@ -34,29 +26,21 @@ namespace RestaurantModelLib.model
             set => _isAlcoholic = value;
         }
 
-        public double Price
-        {
-            get => _price;
-            set => _price = value;
-        }
-
         // Constructor
         public Drink():this("dummy","somedrink", true, 0.0)
         {
         }
 
-        public Drink(string name, string typeOfDrink, bool isAlcoholic, double price)
+        public Drink(string name, string typeOfDrink, bool isAlcoholic, double price):base(name,price)
         {
-            _name = name;
             _typeOfDrink = typeOfDrink;
             _isAlcoholic = isAlcoholic;
-            _price = price;
         }
 
         // To String
         public override string ToString()
         {
-            return $"{nameof(Name)}: {Name}, {nameof(TypeOfDrink)}: {TypeOfDrink}, {nameof(IsAlcoholic)}: {IsAlcoholic}, {nameof(Price)}: {Price}";
+            return base.ToString() + $", {nameof(TypeOfDrink)}: {TypeOfDrink}, {nameof(IsAlcoholic)}: {IsAlcoholic}";
         }
     }
 }
