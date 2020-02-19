@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantModelLib", "Resta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrushupConsoleApp", "BrushupConsoleApp\BrushupConsoleApp.csproj", "{5869B6C4-2368-43B6-B009-FF7AAFBFB906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantUnitTest", "RestaurantUnitTest\RestaurantUnitTest.csproj", "{5AD7FD8C-16F7-457A-83AB-878A7BD25F4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5869B6C4-2368-43B6-B009-FF7AAFBFB906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5869B6C4-2368-43B6-B009-FF7AAFBFB906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5869B6C4-2368-43B6-B009-FF7AAFBFB906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD7FD8C-16F7-457A-83AB-878A7BD25F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD7FD8C-16F7-457A-83AB-878A7BD25F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD7FD8C-16F7-457A-83AB-878A7BD25F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD7FD8C-16F7-457A-83AB-878A7BD25F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
