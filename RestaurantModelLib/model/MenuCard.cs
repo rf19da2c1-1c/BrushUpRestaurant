@@ -191,6 +191,7 @@ namespace RestaurantModelLib.model
                         break;
                 }
             }
+
             dishes.AddRange(mains);
             dishes.AddRange(desserts);
 
@@ -227,7 +228,7 @@ namespace RestaurantModelLib.model
                 return dishes;
 
             // sort all dishes by price
-            SortedList<double,Dish> sortDishes = new SortedList<double,Dish>();
+            SortedList<double, Dish> sortDishes = new SortedList<double, Dish>();
             foreach (Dish d in _dishes)
             {
                 if (d.TypeOfDish == typeOfDish)
@@ -242,6 +243,28 @@ namespace RestaurantModelLib.model
             }
 
             return dishes;
+        }
+
+        /*
+         * delegate
+         */
+
+        public delegate bool HentAlleDishesType(Dish d);
+
+        // selv metoden
+        public List<Dish> HentAlle(HentAlleDishesType betingelse)
+        {
+            List<Dish> retDishes = new List<Dish>();
+
+            foreach (Dish dish in _dishes)
+            {
+                if (betingelse(dish))
+                {
+                    retDishes.Add(dish);
+                }
+            }
+
+            return retDishes;
         }
 
     }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using RestaurantModelLib.model;
 
 namespace BrushupConsoleApp
@@ -117,9 +119,49 @@ namespace BrushupConsoleApp
             Console.WriteLine(String.Join(", ", mcard.GetCheapestDishes("main", 3)));
 
 
+            /*
+             * Brug af delegate
+             */
+
+            Console.WriteLine("  -- alle forretter --");
+            List<Dish> forretter = mcard.HentAlle(EtEllerAndet);
+            foreach (Dish d in forretter)
+            {
+                Console.WriteLine(d);
+            }
+
+            Console.WriteLine("  -- alle desserter under 60 kr --");
+            List<Dish> desserter = mcard.HentAlle(DesserterUnder60);
+            foreach (Dish d in desserter)
+            {
+                Console.WriteLine(d);
+            }
+
+
+            Console.WriteLine("  -- alle hovedretter mere end 90 kr --");
+            List<Dish> hovedretter = mcard.HentAlle((d) => { return d.TypeOfDish == "main" && d.Price > 90; });
+            foreach (Dish dish in hovedretter)
+            {
+                Console.WriteLine(dish);
+            }
+        }
+
+        protected  bool EtEllerAndet(Dish d)
+        {
+            return d.TypeOfDish == "starter";
 
         }
 
+        protected bool DesserterUnder60(Dish d)
+        {
+            return d.TypeOfDish == "dessert" && d.Price <60;
+
+        }
+
+        protected bool MainDishes(Dish d)
+        {
+            return d.TypeOfDish.ToLower() == "main";
+        }
         private void PopulateDish()
         {
             mcard.Dishes.Add(new Dish("ministrone", "starter", 46));
@@ -136,7 +178,7 @@ namespace BrushupConsoleApp
             mcard.Dishes.Add(new Dish("lambSteak", "main", 132));
 
         }
-
+        
         private void PopulateDrinks()
         {
             mcard.Drinks.Add(new Drink("rioja", "redwine", true, 56.8));
